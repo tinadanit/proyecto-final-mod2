@@ -3,6 +3,26 @@
 @import "fonts";
 
 body {
-    background-color: aqua;
-    color: yellow;
+    background-color: black;
+    color: white;
 }
+
+@media (max-width: 768px) {
+    body {
+    display: flex;
+    flex-direction: column;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+    display: flex;
+    flex-direction: row;
+    }
+}
+@media (min-width: 1024px) {
+    body {
+    display: flex;
+    flex-direction: row;
+    }
+}
+
