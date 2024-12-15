@@ -3,26 +3,83 @@
 @import "fonts";
 
 body {
-    background-color: black;
-    color: white;
-}
+    background-color: $bg-color;
+    color: $primary-color;
 
-@media (max-width: 768px) {
-    body {
-    display: flex;
-    flex-direction: column;
-    }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-    body {
-    display: flex;
-    flex-direction: row;
-    }
-}
-@media (min-width: 1024px) {
-    body {
-    display: flex;
-    flex-direction: row;
-    }
-}
+    header {
+        position: fixed;
+        width: 100%;
+        height: 80px;
 
+        .header-menu {
+            height: 80px;
+            background-color: $bg-color;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+
+            .menu-toggle {
+                cursor: pointer;
+            }
+
+            .menu-logo {
+                cursor: pointer;
+                }
+
+            .menu-signin {
+                cursor: pointer;
+            }   
+        }
+    }
+
+    .slide {
+        padding-top: 80px;
+        background-color: aqua;
+
+        .slide-image {
+            width: 100%;
+            height: 220px;
+            background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .slide-text {
+            padding: 30px;
+
+            p {
+                font-size: $font-size-2;
+                font-weight: 700;
+                line-height: 1.6;
+            }
+    
+            h2 {
+                font-size: $font-size-6;
+                font-weight: 700;
+                line-height: 1.1;
+            }
+    
+            .now {
+                width: 100%;
+                min-width: max-content;
+                margin-top: 30px;
+                text-align: center;
+                background: transparent;
+                border: 1px solid $primary-color;
+                border-radius: .25rem;
+                color: $primary-color;
+                cursor: pointer;
+                display: inline-block;
+                font-weight: 700;
+                line-height: 100%;
+                padding: 1rem 3rem;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+}
