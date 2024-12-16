@@ -1,5 +1,6 @@
 @import "reset";
 @import "variables";
+@import "mixins";
 @import "fonts";
 
 body {
@@ -25,6 +26,11 @@ body {
             }
 
             .menu-logo {
+                width: 26px;
+                background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/c46845952588bf44125a37117d4da32c.svg);
+                background-size: 50% contain;
+                background-repeat: no-repeat;
+                background-position: center;
                 cursor: pointer;
                 }
 
@@ -42,6 +48,9 @@ body {
             width: 100%;
             height: 220px;
             background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
+            // https://videos-rockstargames-com.akamaized.net/v4/r50k6mmg/art/global.jpg
+            // https://videos-rockstargames-com.akamaized.net/v4/r0ee9g98/art/es-es.jpg
+            // https://videos-rockstargames-com.akamaized.net/v4/r0ee9g98/art/es-es.jpg
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
@@ -63,23 +72,8 @@ body {
             }
     
             .now {
-                width: 100%;
-                min-width: max-content;
-                margin-top: 30px;
-                text-align: center;
-                background: transparent;
-                border: 1px solid $primary-color;
-                border-radius: .25rem;
-                color: $primary-color;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: 700;
-                line-height: 100%;
-                padding: 1rem 3rem;
-                text-transform: uppercase;
+                @include button-style(transparent, 1px solid $primary-color, $primary-color);
             }
         }
-
     }
-
 }
