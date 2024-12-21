@@ -1,11 +1,15 @@
-@import "reset";
-@import "variables";
-@import "mixins";
-@import "fonts";
+@import "./reset";
+@import "./variables";
+@import "./fonts";
+@import "./mixins";
 
 body {
     background-color: $bg-color;
     color: $primary-color;
+    font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif; 
+    font-display: fallback;
+
+    // HEADER
 
     header {
         position: fixed;
@@ -23,6 +27,8 @@ body {
             flex-wrap: nowrap;
             padding: 0 32px;
             border-bottom: 1px solid $bg-highlight;
+
+            // MENU-LEFT Menu hamburguesa
 
             .header-menu-left {
                 display: flex;
@@ -50,10 +56,12 @@ body {
                       height: 2.4px;
                       background-color: $primary-color;
                       border-radius: 16px;
-                      /* transform: 0.7s; */
+                      // transform: 0.7s;
                     }
                 }
             }
+
+            // HEADER-CENTER
 
             .header-menu-center {
                 display: flex;
@@ -71,6 +79,8 @@ body {
                     cursor: pointer;
                     }
             }
+
+            // HEADER-RIGHT Sing-In
 
             .header-menu-right {
                 display: flex;
@@ -92,7 +102,15 @@ body {
         }
     }
     
+    // MAIN
+
     main {
+
+        .main-site {
+            display: grid;
+        }
+
+        // SECCION 1: SLIDE
 
         .slide {
             padding-top: 80px;
@@ -115,22 +133,23 @@ body {
 
             .slide-text {
                 padding: 32px;
-                font-family: Helvetica;
-
+                
                 p {
                     font-size: $font-size-2;
                     font-weight: 700;
                     line-height: 1.6;
+                    font-stretch: condensed;
                 }
     
                 h2 {
                     font-size: $font-size-6;
-                    font-weight: 700;
-                    line-height: 1.1;
+                    line-height: 1.6;
+                    letter-spacing: -0.5px;
+                    font-weight: bold;
                 }
     
                 .button-now {
-                    @include button-now-style($bg-color, 1px solid $primary-color, $primary-color);
+                    @include button-now-style (transform, 1px solid $primary-color, $primary-color);
                 }
             }
 
@@ -151,6 +170,7 @@ body {
                     width: 48px;
                     line-height: 1.15;
                     border-radius: 16px;
+                    cursor: pointer;
                 }
 
                 .slide-button-next {
@@ -158,17 +178,24 @@ body {
                     background-color: $grey;
                     border: none;
                     cursor: pointer;
-                    width: 12px;
                     line-height: 1.15;
+                    padding: 0.4em;
                 }
             }
         }
+
+        // SECCION 2: NEWSWIRE
         
         .newswire {
             width: fit-content;
             background-color: $bg-color;
             margin: 0px 32px;
 
+            h3 {
+                font-size: $font-size-5;
+                line-height: 1.3;
+                margin: 0 0 1.5rem;
+            }
             .newswire-card {
                 @include newswire-card ();
             }
