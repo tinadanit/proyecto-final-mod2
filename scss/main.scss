@@ -1,7 +1,7 @@
-@import "./reset";
-@import "./variables";
-@import "./fonts";
-@import "./mixins";
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "mixins";
 
 body {
     background-color: $bg-color;
@@ -16,6 +16,7 @@ body {
         width: 100%;
         height: 80px;
         align-items: center;
+        transition: top .3s ease-in-out;
 
         .header-menu {
             height: 80px;
@@ -31,33 +32,44 @@ body {
             // MENU-LEFT Menu hamburguesa
 
             .header-menu-left {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                width: 33%;
-
-                .menu-toggle {
-                    display: none;
+                @include mobile {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 33%;
+    
+                    .menu-toggle {
+                        display: none;
+                    }
+    
+                    .menu-icon {
+                        display: flex;
+                        flex-direction: column;
+                        cursor: pointer;
+                        gap: 5.6px;
+                        justify-content: center;
+                        align-items: center;
+                        height: 24px;
+                     
+                        span {
+                          display: block;
+                          width: 24px;
+                          height: 2.4px;
+                          background-color: $primary-color;
+                          border-radius: 16px;
+                          // transform: 0.7s;
+                        }
+                    }
                 }
 
-                .menu-icon {
-                    display: flex;
-                    flex-direction: column;
-                    cursor: pointer;
-                    gap: 5.6px;
-                    justify-content: center;
-                    align-items: center;
-                    height: 24px;
-                 
-                    span {
-                      display: block;
-                      width: 24px;
-                      height: 2.4px;
-                      background-color: $primary-color;
-                      border-radius: 16px;
-                      // transform: 0.7s;
-                    }
+                @include pc {
+                    display: none;
+                    position: absolute;
+                }
+                @include tablet {
+                    display: none;
+                    position: absolute;
                 }
             }
 
@@ -66,18 +78,57 @@ body {
             .header-menu-center {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
                 align-items: center;
-                width: 33%;
+                justify-content: space-around;
+
+                @include mobile {
+                    width: 33%;
+                }
+                @include pc {
+                    width: 67%;
+                }
 
                 .menu-logo {
-                    width: 1.5rem;
+                    width: 2em;
                     background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/c46845952588bf44125a37117d4da32c.svg);
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
                     cursor: pointer;
                     }
+                
+                .ext-nav-ul {
+                    @include mobile {
+                        display: none;
+                        position: absolute;
+                    }
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    gap: 3em;
+                    font-size: $font-size-2;
+
+                    .nav-desplegable-button {
+                        @include button-style;
+                    }
+
+                    .ext-nav-mas {
+                        @include pc {
+                            display: none;
+                        }
+                    }
+
+                    .pc-nav-tienda, .pc-nav-asistencia {
+                        @include tablet {
+                            display: none;
+                        }
+                    }
+                }
+                
+                
             }
 
             // HEADER-RIGHT Sing-In
@@ -88,6 +139,45 @@ body {
                 justify-content: flex-end;
                 align-items: center;
                 width: 33%;
+
+                .menu-right-extended {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    justify-content: space-around;
+                    gap: 2em;
+
+                    .right-ext-launcher {
+                        background-color: $yellow;
+                        color: $bg-color;
+                        min-width: max-content;
+                        text-align: center;
+                        border-radius: .25rem;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 1em;
+                        font-weight: 700;
+                        line-height: 100%;
+                        padding: 0.75em 1em;
+                        text-transform: uppercase;
+
+                        @include mobile {
+                            position: absolute;
+                            display: none;
+                        }
+                    }
+
+                    .ext-search-button {
+                        @include button-style;
+                        width: 25px;
+
+                        @include mobile {
+                            position: absolute;
+                            display: none;
+                        }
+                    }
+                }
 
                 .menu-signin {
                     cursor: pointer;

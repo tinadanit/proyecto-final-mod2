@@ -185,6 +185,7 @@ body header {
   width: 100%;
   height: 80px;
   align-items: center;
+  transition: top 0.3s;
 }
 body header .header-menu {
   height: 80px;
@@ -197,46 +198,99 @@ body header .header-menu {
   padding: 0 32px;
   border-bottom: 1px solid #282828;
 }
-body header .header-menu .header-menu-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 33%;
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 33%;
+  }
+  body header .header-menu .header-menu-left .menu-toggle {
+    display: none;
+  }
+  body header .header-menu .header-menu-left .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5.6px;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+  }
+  body header .header-menu .header-menu-left .menu-icon span {
+    display: block;
+    width: 24px;
+    height: 2.4px;
+    background-color: #fff;
+    border-radius: 16px;
+  }
 }
-body header .header-menu .header-menu-left .menu-toggle {
-  display: none;
+@media screen and (min-width: 1024px) {
+  body header .header-menu .header-menu-left {
+    display: none;
+    position: absolute;
+  }
 }
-body header .header-menu .header-menu-left .menu-icon {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5.6px;
-  justify-content: center;
-  align-items: center;
-  height: 24px;
-}
-body header .header-menu .header-menu-left .menu-icon span {
-  display: block;
-  width: 24px;
-  height: 2.4px;
-  background-color: #fff;
-  border-radius: 16px;
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body header .header-menu .header-menu-left {
+    display: none;
+    position: absolute;
+  }
 }
 body header .header-menu .header-menu-center {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
-  width: 33%;
+  justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-center {
+    width: 33%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body header .header-menu .header-menu-center {
+    width: 67%;
+  }
 }
 body header .header-menu .header-menu-center .menu-logo {
-  width: 1.5rem;
+  width: 2em;
   background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/c46845952588bf44125a37117d4da32c.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+body header .header-menu .header-menu-center .ext-nav-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 3em;
+  font-size: 0.75em;
+}
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-center .ext-nav-ul {
+    display: none;
+    position: absolute;
+  }
+}
+body header .header-menu .header-menu-center .ext-nav-ul .nav-desplegable-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+@media screen and (min-width: 1024px) {
+  body header .header-menu .header-menu-center .ext-nav-ul .ext-nav-mas {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body header .header-menu .header-menu-center .ext-nav-ul .pc-nav-tienda, body header .header-menu .header-menu-center .ext-nav-ul .pc-nav-asistencia {
+    display: none;
+  }
 }
 body header .header-menu .header-menu-right {
   display: flex;
@@ -244,6 +298,46 @@ body header .header-menu .header-menu-right {
   justify-content: flex-end;
   align-items: center;
   width: 33%;
+}
+body header .header-menu .header-menu-right .menu-right-extended {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2em;
+}
+body header .header-menu .header-menu-right .menu-right-extended .right-ext-launcher {
+  background-color: #fcaf17;
+  color: #000;
+  min-width: max-content;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 100%;
+  padding: 0.75em 1em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-right .menu-right-extended .right-ext-launcher {
+    position: absolute;
+    display: none;
+  }
+}
+body header .header-menu .header-menu-right .menu-right-extended .ext-search-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  width: 25px;
+}
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-right .menu-right-extended .ext-search-button {
+    position: absolute;
+    display: none;
+  }
 }
 body header .header-menu .header-menu-right .menu-signin {
   cursor: pointer;
