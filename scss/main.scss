@@ -126,9 +126,7 @@ body {
                             display: none;
                         }
                     }
-                }
-                
-                
+                }              
             }
 
             // HEADER-RIGHT Sing-In
@@ -195,100 +193,132 @@ body {
     // MAIN
 
     main {
+        display: flex;
 
         .main-site {
             display: grid;
-        }
 
-        // SECCION 1: SLIDE
-
-        .slide {
-            padding-top: 80px;
-            display: flex;
-            flex-flow: column;
-            position: relative;
-
-            .slide-image {
-                width: 100%;
-                background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
-                // https://videos-rockstargames-com.akamaized.net/v4/r50k6mmg/art/global.jpg
-                // https://videos-rockstargames-com.akamaized.net/v4/r0ee9g98/art/es-es.jpg
-                // https://videos-rockstargames-com.akamaized.net/v4/r0ee9g98/art/es-es.jpg
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: cover;
-                aspect-ratio: 16/9;
-                overflow: hidden;
-            }
-
-            .slide-text {
-                padding: 32px;
-                
-                p {
-                    font-size: $font-size-2;
-                    font-weight: 700;
-                    line-height: 1.6;
-                    font-stretch: condensed;
+            // SECCION 1: SLIDER
+    
+            .slider {
+                padding-top: 80px;
+                display: grid;
+    
+                .slider-image {
+                    display: flex;
+                    background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
+                    width: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    aspect-ratio: 16/9;
+                    overflow: hidden;
                 }
     
-                h2 {
-                    font-size: $font-size-6;
-                    line-height: 1.6;
-                    letter-spacing: -0.5px;
-                    font-weight: bold;
-                }
+                .slider-card {
+                    padding: 32px;
+                    display: grid;
     
-                .button-now {
-                    @include button-now-style (transform, 1px solid $primary-color, $primary-color);
-                }
-            }
-
-            .slide-buttons {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                flex-wrap: nowrap;
-                gap: 1rem;
-                margin: 0 32px;
-
-                .slide-button-first {
-                    background-color: $primary-color;
-                    border: none;
-                    margin-right: 0.5rem;
-                    height: 12px;
-                    width: 48px;
-                    line-height: 1.15;
-                    border-radius: 16px;
-                    cursor: pointer;
-                }
-
-                .slide-button-next {
-                    border-radius: 50%;
-                    background-color: $grey;
-                    border: none;
-                    cursor: pointer;
-                    line-height: 1.15;
-                    padding: 0.4em;
-                }
-            }
-        }
-
-        // SECCION 2: NEWSWIRE
+                    .slider-text {
+                        display: flex;
+                        
+                        p {
+                            font-size: $font-size-2;
+                            font-weight: 700;
+                            line-height: 1.6;
+                            font-stretch: condensed;
+                        }
+            
+                        h2 {
+                            font-size: $font-size-6;
+                            line-height: 1.6;
+                            letter-spacing: -0.5px;
+                            font-weight: bold;
+                        }
+            
+                        .button-now {
+                            display: flex;
+                            @include button-now-style (transparent, 1px solid $primary-color, $primary-color)
+                        }
+                    }
         
-        .newswire {
-            width: fit-content;
-            background-color: $bg-color;
-            margin: 0px 32px;
-
-            h3 {
-                font-size: $font-size-5;
-                line-height: 1.3;
-                margin: 0 0 1.5rem;
+                    .slide-buttons {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        gap: 1rem;
+                        margin: 0 32px;
+            
+                        .slide-button-first {
+                            background-color: $primary-color;
+                            border: none;
+                            margin-right: 0.5rem;
+                            height: 12px;
+                            width: 48px;
+                            line-height: 1.15;
+                            border-radius: 16px;
+                            cursor: pointer;
+                        }
+            
+                        .slide-button-next {
+                            border-radius: 50%;
+                            background-color: $grey;
+                            border: none;
+                            cursor: pointer;
+                            line-height: 1.15;
+                            padding: 0.4em;
+                        }
+                    }
+                }
             }
-            .newswire-card {
-                @include newswire-card ();
+    
+            .main-sections {
+                display:grid;
+                margin: 0px 32px;
+    
+                // SECCION 2: NEWSWIRE
+                
+                .newswire {
+                    display: flex;
+                    width: fit-content;
+                    background-color: $bg-color;
+        
+                    h3 {
+                        font-size: $font-size-5;
+                        line-height: 1.3;
+                        margin: 0 0 1.5rem;
+                    }
+                    .newswire-card {
+                        display: grid;
+                        @include newswire-card;
+                    }
+                }
+
+                .destacados {
+                    display: grid;
+
+                    .destacados-galeria {
+                        display: grid
+                    }
+                }
             }
         }
+
+        .main-last {
+
+            .suscribe {
+                display: flex;
+
+                .suscribe-container {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    footer {
+        display: flex;
     }
 }

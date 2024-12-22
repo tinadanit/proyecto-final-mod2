@@ -22,8 +22,12 @@
     color: $primary-color;
 }
 
-@mixin button-now-style ($background, $border, $color) {
-    width: 100%;
+@mixin button-now-style ($fondo, $borde, $texto) {
+    background: $fondo;
+    border: $borde;
+    color: $texto;
+    width: 30em;
+    max-width: 100%;
     min-width: max-content;
     margin-top: 30px;
     text-align: center;
@@ -36,10 +40,17 @@
     text-transform: uppercase;
 }
 
-@mixin newswire-card () {
+@mixin newswire-card {
     justify-content: center;
     height: 600px;
     padding: 32px 24px;
     border: 1px solid $bg-highlight;
     border-radius: 16px;
+}
+
+@mixin view-more-button {
+    background: transparent;
+    color: $primary-color;
+    border-bottom: 3px solid $yellow;
+    border-radius: 0.25em;
 }
