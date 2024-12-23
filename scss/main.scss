@@ -283,16 +283,89 @@ body {
                 .newswire {
                     display: flex;
                     width: fit-content;
-                    background-color: $bg-color;
+                    flex-direction: column;
         
                     h3 {
                         font-size: $font-size-5;
                         line-height: 1.3;
                         margin: 0 0 1.5rem;
                     }
-                    .newswire-card {
+
+                    .newswire-container {
                         display: grid;
-                        @include newswire-card;
+                        gap: 1.5em;
+                        width: 100%;
+                        @include mobile {
+                            grid-template-columns: 1fr;
+                        }
+                        @include tablet {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                        @include pc {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+
+                        .newswire-card {
+                            display: flex;
+                            flex-direction: column;
+                            @include newswire-card-style;
+
+                            .card-img1 {
+                                @include card-img-style; 
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/255345a321k885/07f9e87bc42e7dd32efc6ccefdc186b45ac63c19.jpg");
+                            }
+                            .card-img2 {
+                                @include card-img-style;
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a125kk44o23/cf8d561f02df67e3e7b23467cbc5eca55b6cd806.jpg");
+                            }
+                            .card-img3 {
+                                @include card-img-style;
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a19ka9935ok/736f71b4e0ec0f8911e681703acc45b63743e529.jpg");
+                            }
+                            .card-img4 {
+                                @include card-img-style;
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a95o875o292/62b9f0b851390e9a42c38777e6844e55714dd184.jpg");
+                            }
+                            .card-img5 {
+                                @include card-img-style;
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/51177485oa84a9/821555e42660badad537cd357bfb950e2de1770e.jpg");
+
+                            }
+                            .card-img6 {
+                                @include card-img-style;
+                                background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/k44ao7934a73a1/3b5b856a0330d051b75cc5d6aec5059343825398.jpg");
+                            }
+
+                            .card-info{
+                                padding: 32px 24px;
+
+                                h5 {
+                                    font-size: $font-size-4;
+                                    line-height: 1.3;
+                                    color: $primary-color;
+                                    text-align: left;
+                                    text-wrap: wrap;
+                                }
+
+                                .card-info-credit {
+                                    display: flex;
+                                    flex-direction: row;
+                                    font-size: $font-size-2;
+                                    font-weight: 700;
+                                    line-height: 1.6;
+                                    font-stretch: condensed;
+
+                                    p {
+                                        color: $primary-color;
+                                    }
+    
+                                    time {
+                                        color: $secondary-color;
+                                        padding-left: 1em;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 

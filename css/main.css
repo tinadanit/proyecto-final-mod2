@@ -439,20 +439,130 @@ body main .main-site .main-sections {
 body main .main-site .main-sections .newswire {
   display: flex;
   width: fit-content;
-  background-color: #000;
+  flex-direction: column;
 }
 body main .main-site .main-sections .newswire h3 {
   font-size: 1.5em;
   line-height: 1.3;
   margin: 0 0 1.5rem;
 }
-body main .main-site .main-sections .newswire .newswire-card {
+body main .main-site .main-sections .newswire .newswire-container {
   display: grid;
+  gap: 1.5em;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .newswire .newswire-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .newswire .newswire-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .newswire .newswire-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 600px;
-  padding: 32px 24px;
   border: 1px solid #282828;
-  border-radius: 16px;
+  border-radius: 8px;
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img1 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/255345a321k885/07f9e87bc42e7dd32efc6ccefdc186b45ac63c19.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img2 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a125kk44o23/cf8d561f02df67e3e7b23467cbc5eca55b6cd806.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img3 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a19ka9935ok/736f71b4e0ec0f8911e681703acc45b63743e529.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img4 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/399a95o875o292/62b9f0b851390e9a42c38777e6844e55714dd184.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img5 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/51177485oa84a9/821555e42660badad537cd357bfb950e2de1770e.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-img6 {
+  width: 100%;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px 8px 0px 0px;
+  background-image: url("https://media-rockstargames-com.akamaized.net/tina-uploads/posts/k44ao7934a73a1/3b5b856a0330d051b75cc5d6aec5059343825398.jpg");
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info {
+  padding: 32px 24px;
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info h5 {
+  font-size: 1.25em;
+  line-height: 1.3;
+  color: #fff;
+  text-align: left;
+  text-wrap: wrap;
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info .card-info-credit {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1.6;
+  font-stretch: condensed;
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info .card-info-credit p {
+  color: #fff;
+}
+body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info .card-info-credit time {
+  color: #979797;
+  padding-left: 1em;
 }
 body main .main-site .main-sections .destacados {
   display: grid;
