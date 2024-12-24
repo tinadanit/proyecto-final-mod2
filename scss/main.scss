@@ -20,6 +20,7 @@ body {
 
         .header-menu {
             height: 80px;
+            width: 100%;
             background-color: $bg-color;
             display: flex;
             flex-direction: row;
@@ -38,6 +39,7 @@ body {
                     justify-content: flex-start;
                     align-items: center;
                     width: 33%;
+                    height: inherit;
     
                     .menu-toggle {
                         display: none;
@@ -80,6 +82,7 @@ body {
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-around;
+                height: inherit;
 
                 @include mobile {
                     width: 33%;
@@ -95,14 +98,9 @@ body {
                     background-repeat: no-repeat;
                     background-position: center;
                     cursor: pointer;
-                    }
+                }
                 
-                .ext-nav-ul {
-                    @include mobile {
-                        display: none;
-                        position: absolute;
-                    }
-
+                .ext-nav-ul {                
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
@@ -110,6 +108,10 @@ body {
                     flex-wrap: nowrap;
                     gap: 3em;
                     font-size: $font-size-2;
+                    @include mobile {
+                        display: none;
+                        position: absolute;
+                    }
 
                     .nav-desplegable-button {
                         @include button-style;
@@ -137,6 +139,7 @@ body {
                 justify-content: flex-end;
                 align-items: center;
                 width: 33%;
+                height: inherit;
 
                 .menu-right-extended {
                     display: flex;
@@ -145,7 +148,12 @@ body {
                     align-items: center;
                     justify-content: space-around;
                     gap: 2em;
-
+                    height: inherit;
+                    @include mobile {
+                        position: absolute;
+                        display: none;
+                    }
+                    
                     .right-ext-launcher {
                         background-color: $yellow;
                         color: $bg-color;
@@ -159,13 +167,8 @@ body {
                         line-height: 100%;
                         padding: 0.75em 1em;
                         text-transform: uppercase;
-
-                        @include mobile {
-                            position: absolute;
-                            display: none;
-                        }
                     }
-
+                    
                     .ext-search-button {
                         @include button-style;
                         width: 25px;
@@ -179,11 +182,12 @@ body {
 
                 .menu-signin {
                     cursor: pointer;
-                    width: 2rem;
+                    width: 2em;
+                    height: inherit;
                     background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/a29e26aa160e7be7e845708c335b3c39.svg);
                     background-size: contain;
                     background-repeat: no-repeat;
-                    background-position: center;
+                    background-position: center center;
                     cursor: pointer;
                 }   
             }
@@ -193,68 +197,122 @@ body {
     // MAIN
 
     main {
-        display: flex;
+        /*display: flex;
+        @include mobile {
+            flex-direction: column;
+        }
+        @include pc {
+            flex-direction: row;
+        }*/
 
         .main-site {
-            display: grid;
+            //display: grid;
+            //width: 100%;
+
+            //@include mobile {
+            //   grid-template-columns: 100%;
+            //    grid-template-rows: 1fr 2fr 1fr;
+            //}
+            //@include pc {
+            //    grid-template-columns: 100%;
+            //    grid-template-rows: 20% 65% 15%;
+            //}
 
             // SECCION 1: SLIDER
     
             .slider {
                 padding-top: 80px;
                 display: grid;
+                width: 100%;
+                height: fit-content;
+
+                @include mobile {
+                    grid-template-columns: 100%;
+                    grid-template-rows: 50% 50%;
+                    justify-content: center;
+
+                }
+                @include pc {
+                    grid-template-columns: 70% 30%;
+                    grid-template-rows: 100%;
+                    align-items: center;
+                }
     
                 .slider-image {
                     display: flex;
                     background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
                     width: 100%;
+                    height: fit-content;
                     background-repeat: no-repeat;
                     background-position: center center;
-                    background-size: cover;
+                    background-size: contain;
                     aspect-ratio: 16/9;
                     overflow: hidden;
                 }
     
                 .slider-card {
+                    width: 100%;
+                    height: 100%;
+                    background-color: red;
                     padding: 32px;
                     display: grid;
-    
+                    gap: 32px;
+                    @include mobile {
+                        grid-template-columns: 1fr;
+                    }
+                    @include pc {
+                        grid-template-rows: 1fr 1fr;
+                        align-items: end;
+                    }
+
                     .slider-text {
+                        background-color: aqua;
                         display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        align-items: flex-start;
+                        justify-content: center;
+
+                        .slider-text-content {
+                            background-color: green;
+                            display: grid;
+                            width: 100%;
+                            height: fit-content;
+                            p {
+                                font-size: $font-size-2;
+                                font-weight: 700;
+                                line-height: 1.6;
+                                font-stretch: condensed;
+                            }
+                
+                            h2 {
+                                font-size: $font-size-6;
+                                line-height: 1.6;
+                                letter-spacing: -0.5px;
+                                font-weight: bold;
+                            }
+                        }
                         
-                        p {
-                            font-size: $font-size-2;
-                            font-weight: 700;
-                            line-height: 1.6;
-                            font-stretch: condensed;
-                        }
-            
-                        h2 {
-                            font-size: $font-size-6;
-                            line-height: 1.6;
-                            letter-spacing: -0.5px;
-                            font-weight: bold;
-                        }
-            
                         .button-now {
                             display: flex;
-                            @include button-now-style (transparent, 1px solid $primary-color, $primary-color)
+                            @include button-now-style (transparent, 1px solid $primary-color, $primary-color);
                         }
                     }
         
                     .slide-buttons {
+                        background-color: blue;
                         display: flex;
                         flex-direction: row;
                         justify-content: flex-start;
                         align-items: center;
                         flex-wrap: nowrap;
                         gap: 1rem;
-                        margin: 0 32px;
+                        width: 100%;
+                        height: fit-content;
             
                         .slide-button-first {
                             background-color: $primary-color;
                             border: none;
-                            margin-right: 0.5rem;
                             height: 12px;
                             width: 48px;
                             line-height: 1.15;
@@ -272,11 +330,23 @@ body {
                         }
                     }
                 }
+    
             }
+            
     
             .main-sections {
-                display:grid;
+                //display:grid;
                 margin: 0px 32px;
+
+                //@include mobile {
+                //    grid-template-rows: 6fr, 1fr;
+                //}
+                //@include tablet {
+                //    grid-template-rows: 2fr, 1fr;
+                //}
+                // //@include pc {
+                //     grid-template-rows: 1fr, 1fr;
+                // }
     
                 // SECCION 2: NEWSWIRE
                 
@@ -295,6 +365,7 @@ body {
                         display: grid;
                         gap: 1.5em;
                         width: 100%;
+                        height: fit-content;
                         @include mobile {
                             grid-template-columns: 1fr;
                         }
@@ -370,22 +441,93 @@ body {
                 }
 
                 .destacados {
-                    display: grid;
+                    display: flex;
+                    flex-direction: column;
+                    //justify-content: center;
+                    //align-items: flex-start;
+
+                    h3 {
+                        font-size: $font-size-5;
+                        line-height: 1.3;
+                        margin: 0 0 1.5rem;
+                        text-align: left;
+                    }
 
                     .destacados-galeria {
-                        display: grid
+                        background-color: yellow;
+                        display: grid;
+                        width: 100%;
+                        height: fit-content;
+
+                        gap: 1.5em;
+                        @include mobile {
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-template-rows: repeat(3, 1fr);
+                        }
+                        @include tablet {
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                        }
+                        @include pc {
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-template-rows: repeat(2, 1fr);
+                        }
+
+                        a {
+                            display: flex;
+                            flex-direction: column;
+                            box-shadow: 0 0 40px -25px transparent;
+                            
+                            #galeria-img-first {
+                                background-image: url("../images/FullScreen\ GTA.png");
+                                @include destacados-galeria-style;
+                                grid-column: 1 / span 4;
+                                background-size: contain;
+                                border-radius: 8px;
+    
+                                @include mobile {
+                                    grid-column: 1 / span 2;
+                                    aspect-ratio: 16/9;
+                                }
+                                @include pc {
+                                    grid-column: 1 / span 4;
+                                    aspect-ratio: 10/3;
+                                }
+                            }
+    
+                            #galeria-img2 {
+                                background-image: url("../images/GTA-V.jpg");
+                                @include destacados-galeria-style;
+                            }
+    
+                            #galeria-img3 {    
+                                background-image: url("../images/GTA-Online.jpg");
+                                @include destacados-galeria-style;
+                            }
+    
+                            #galeria-img4 {
+                                background-image: url("../images/RDR2.jpg");
+                                @include destacados-galeria-style;
+                                border-radius: 8px;
+                            }
+                            #galeria-img5 {    
+                                background-image: url("../images/RDR.jpg");
+                                @include destacados-galeria-style;
+                                border-radius: 8px;
+                            }
+                        }
                     }
                 }
             }
-        }
 
-        .main-last {
-
-            .suscribe {
-                display: flex;
-
-                .suscribe-container {
+            .main-last {
+    
+                .suscribe {
                     display: flex;
+    
+                    .suscribe-container {
+                        display: flex;
+                    }
                 }
             }
         }

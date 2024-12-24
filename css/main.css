@@ -189,6 +189,7 @@ body header {
 }
 body header .header-menu {
   height: 80px;
+  width: 100%;
   background-color: #000;
   display: flex;
   flex-direction: row;
@@ -205,6 +206,7 @@ body header .header-menu {
     justify-content: flex-start;
     align-items: center;
     width: 33%;
+    height: inherit;
   }
   body header .header-menu .header-menu-left .menu-toggle {
     display: none;
@@ -243,6 +245,7 @@ body header .header-menu .header-menu-center {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  height: inherit;
 }
 @media screen and (max-width: 768px) {
   body header .header-menu .header-menu-center {
@@ -298,6 +301,7 @@ body header .header-menu .header-menu-right {
   justify-content: flex-end;
   align-items: center;
   width: 33%;
+  height: inherit;
 }
 body header .header-menu .header-menu-right .menu-right-extended {
   display: flex;
@@ -306,6 +310,13 @@ body header .header-menu .header-menu-right .menu-right-extended {
   align-items: center;
   justify-content: space-around;
   gap: 2em;
+  height: inherit;
+}
+@media screen and (max-width: 768px) {
+  body header .header-menu .header-menu-right .menu-right-extended {
+    position: absolute;
+    display: none;
+  }
 }
 body header .header-menu .header-menu-right .menu-right-extended .right-ext-launcher {
   background-color: #fcaf17;
@@ -321,12 +332,6 @@ body header .header-menu .header-menu-right .menu-right-extended .right-ext-laun
   padding: 0.75em 1em;
   text-transform: uppercase;
 }
-@media screen and (max-width: 768px) {
-  body header .header-menu .header-menu-right .menu-right-extended .right-ext-launcher {
-    position: absolute;
-    display: none;
-  }
-}
 body header .header-menu .header-menu-right .menu-right-extended .ext-search-button {
   background-color: transparent;
   border: none;
@@ -341,47 +346,94 @@ body header .header-menu .header-menu-right .menu-right-extended .ext-search-but
 }
 body header .header-menu .header-menu-right .menu-signin {
   cursor: pointer;
-  width: 2rem;
+  width: 2em;
+  height: inherit;
   background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/a29e26aa160e7be7e845708c335b3c39.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   cursor: pointer;
 }
 body main {
-  display: flex;
-}
-body main .main-site {
-  display: grid;
+  /*display: flex;
+  @include mobile {
+      flex-direction: column;
+  }
+  @include pc {
+      flex-direction: row;
+  }*/
 }
 body main .main-site .slider {
   padding-top: 80px;
   display: grid;
+  width: 100%;
+  height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .slider {
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .slider {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 100%;
+    align-items: center;
+  }
 }
 body main .main-site .slider .slider-image {
   display: flex;
   background-image: url(https://videos-rockstargames-com.akamaized.net/v4/rkoCtr1r/art/global.jpg);
   width: 100%;
+  height: fit-content;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: contain;
   aspect-ratio: 16/9;
   overflow: hidden;
 }
 body main .main-site .slider .slider-card {
+  width: 100%;
+  height: 100%;
+  background-color: red;
   padding: 32px;
   display: grid;
+  gap: 32px;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .slider .slider-card {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .slider .slider-card {
+    grid-template-rows: 1fr 1fr;
+    align-items: end;
+  }
 }
 body main .main-site .slider .slider-card .slider-text {
+  background-color: aqua;
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
 }
-body main .main-site .slider .slider-card .slider-text p {
+body main .main-site .slider .slider-card .slider-text .slider-text-content {
+  background-color: green;
+  display: grid;
+  width: 100%;
+  height: fit-content;
+}
+body main .main-site .slider .slider-card .slider-text .slider-text-content p {
   font-size: 0.75em;
   font-weight: 700;
   line-height: 1.6;
   font-stretch: condensed;
 }
-body main .main-site .slider .slider-card .slider-text h2 {
+body main .main-site .slider .slider-card .slider-text .slider-text-content h2 {
   font-size: 2em;
   line-height: 1.6;
   letter-spacing: -0.5px;
@@ -392,9 +444,6 @@ body main .main-site .slider .slider-card .slider-text .button-now {
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
-  width: 30em;
-  max-width: 100%;
-  min-width: max-content;
   margin-top: 30px;
   text-align: center;
   border-radius: 0.25rem;
@@ -404,20 +453,24 @@ body main .main-site .slider .slider-card .slider-text .button-now {
   line-height: 100%;
   padding: 1rem 3rem;
   text-transform: uppercase;
+  min-width: max-content;
+  display: inline-block;
+  overflow: visible;
 }
 body main .main-site .slider .slider-card .slide-buttons {
+  background-color: blue;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
   gap: 1rem;
-  margin: 0 32px;
+  width: 100%;
+  height: fit-content;
 }
 body main .main-site .slider .slider-card .slide-buttons .slide-button-first {
   background-color: #fff;
   border: none;
-  margin-right: 0.5rem;
   height: 12px;
   width: 48px;
   line-height: 1.15;
@@ -433,7 +486,6 @@ body main .main-site .slider .slider-card .slide-buttons .slide-button-next {
   padding: 0.4em;
 }
 body main .main-site .main-sections {
-  display: grid;
   margin: 0px 32px;
 }
 body main .main-site .main-sections .newswire {
@@ -450,6 +502,7 @@ body main .main-site .main-sections .newswire .newswire-container {
   display: grid;
   gap: 1.5em;
   width: 100%;
+  height: fit-content;
 }
 @media screen and (max-width: 768px) {
   body main .main-site .main-sections .newswire .newswire-container {
@@ -469,7 +522,7 @@ body main .main-site .main-sections .newswire .newswire-container {
 body main .main-site .main-sections .newswire .newswire-container .newswire-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top center;
   border: 1px solid #282828;
   border-radius: 8px;
 }
@@ -565,15 +618,111 @@ body main .main-site .main-sections .newswire .newswire-container .newswire-card
   padding-left: 1em;
 }
 body main .main-site .main-sections .destacados {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+}
+body main .main-site .main-sections .destacados h3 {
+  font-size: 1.5em;
+  line-height: 1.3;
+  margin: 0 0 1.5rem;
+  text-align: left;
 }
 body main .main-site .main-sections .destacados .destacados-galeria {
+  background-color: yellow;
   display: grid;
+  width: 100%;
+  height: fit-content;
+  gap: 1.5em;
 }
-body main .main-last .suscribe {
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria a {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px -25px transparent;
+}
+body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
+  background-image: url("../images/FullScreen GTA.png");
+  aspect-ratio: 64/79;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  grid-column: 1/span 4;
+  background-size: contain;
+  border-radius: 8px;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
+    grid-column: 1/span 2;
+    aspect-ratio: 16/9;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
+    grid-column: 1/span 4;
+    aspect-ratio: 10/3;
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img2 {
+  background-image: url("../images/GTA-V.jpg");
+  aspect-ratio: 64/79;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+}
+body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img3 {
+  background-image: url("../images/GTA-Online.jpg");
+  aspect-ratio: 64/79;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+}
+body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img4 {
+  background-image: url("../images/RDR2.jpg");
+  aspect-ratio: 64/79;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+}
+body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img5 {
+  background-image: url("../images/RDR.jpg");
+  aspect-ratio: 64/79;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+}
+body main .main-site .main-last .suscribe {
   display: flex;
 }
-body main .main-last .suscribe .suscribe-container {
+body main .main-site .main-last .suscribe .suscribe-container {
   display: flex;
 }
 body footer {
