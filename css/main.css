@@ -272,7 +272,7 @@ body header .header-menu .header-menu-center .ext-nav-ul {
   align-items: center;
   flex-wrap: nowrap;
   gap: 3em;
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 @media screen and (max-width: 768px) {
   body header .header-menu .header-menu-center .ext-nav-ul {
@@ -354,15 +354,6 @@ body header .header-menu .header-menu-right .menu-signin {
   background-position: center center;
   cursor: pointer;
 }
-body main {
-  /*display: flex;
-  @include mobile {
-      flex-direction: column;
-  }
-  @include pc {
-      flex-direction: row;
-  }*/
-}
 body main .main-site .slider {
   padding-top: 80px;
   display: grid;
@@ -428,13 +419,13 @@ body main .main-site .slider .slider-card .slider-text .slider-text-content {
   height: fit-content;
 }
 body main .main-site .slider .slider-card .slider-text .slider-text-content p {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.6;
   font-stretch: condensed;
 }
 body main .main-site .slider .slider-card .slider-text .slider-text-content h2 {
-  font-size: 2em;
+  font-size: 2rem;
   line-height: 1.6;
   letter-spacing: -0.5px;
   font-weight: bold;
@@ -492,9 +483,10 @@ body main .main-site .main-sections .newswire {
   display: flex;
   width: fit-content;
   flex-direction: column;
+  padding: 32px 0px;
 }
 body main .main-site .main-sections .newswire h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   line-height: 1.3;
   margin: 0 0 1.5rem;
 }
@@ -596,7 +588,7 @@ body main .main-site .main-sections .newswire .newswire-container .newswire-card
   padding: 32px 24px;
 }
 body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info h5 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.3;
   color: #fff;
   text-align: left;
@@ -605,7 +597,7 @@ body main .main-site .main-sections .newswire .newswire-container .newswire-card
 body main .main-site .main-sections .newswire .newswire-container .newswire-card .card-info .card-info-credit {
   display: flex;
   flex-direction: row;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.6;
   font-stretch: condensed;
@@ -618,17 +610,20 @@ body main .main-site .main-sections .newswire .newswire-container .newswire-card
   padding-left: 1em;
 }
 body main .main-site .main-sections .destacados {
+  background-color: cornflowerblue;
   display: flex;
   flex-direction: column;
+  padding: 32px 0px;
+  justify-content: center;
 }
 body main .main-site .main-sections .destacados h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   line-height: 1.3;
   margin: 0 0 1.5rem;
   text-align: left;
 }
 body main .main-site .main-sections .destacados .destacados-galeria {
-  background-color: yellow;
+  background-color: paleturquoise;
   display: grid;
   width: 100%;
   height: fit-content;
@@ -653,11 +648,42 @@ body main .main-site .main-sections .destacados .destacados-galeria {
   }
 }
 body main .main-site .main-sections .destacados .destacados-galeria a {
+  background-color: yellow;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 0 40px -25px transparent;
+  width: 100%;
+  height: fit-content;
 }
-body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-first {
+  background-color: red;
+  width: 100%;
+  height: 200px;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-first {
+    grid-column: 1/span 2;
+    grid-row: 1/span 1;
+    aspect-ratio: 16/9;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-first {
+    grid-column: 1/span 4;
+    grid-row: 1/span 1;
+    aspect-ratio: 10/3;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-first {
+    grid-column: 1/span 4;
+    grid-row: 1/span 1;
+    aspect-ratio: 10/3;
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-first #galeria-img-first {
   background-image: url("../images/FullScreen GTA.png");
   aspect-ratio: 64/79;
   background-size: cover;
@@ -665,23 +691,28 @@ body main .main-site .main-sections .destacados .destacados-galeria a #galeria-i
   background-repeat: no-repeat;
   display: flex;
   width: 100%;
-  grid-column: 1/span 4;
   background-size: contain;
   border-radius: 8px;
 }
 @media screen and (max-width: 768px) {
-  body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
-    grid-column: 1/span 2;
-    aspect-ratio: 16/9;
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img2 {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img2 {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
   }
 }
 @media screen and (min-width: 1024px) {
-  body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img-first {
-    grid-column: 1/span 4;
-    aspect-ratio: 10/3;
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img2 {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
   }
 }
-body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img2 {
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img2 #galeria-img2 {
   background-image: url("../images/GTA-V.jpg");
   aspect-ratio: 64/79;
   background-size: cover;
@@ -690,7 +721,25 @@ body main .main-site .main-sections .destacados .destacados-galeria a #galeria-i
   display: flex;
   width: 100%;
 }
-body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img3 {
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img3 {
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img3 {
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img3 {
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img3 #galeria-img3 {
   background-image: url("../images/GTA-Online.jpg");
   aspect-ratio: 64/79;
   background-size: cover;
@@ -699,7 +748,25 @@ body main .main-site .main-sections .destacados .destacados-galeria a #galeria-i
   display: flex;
   width: 100%;
 }
-body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img4 {
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img4 {
+    grid-column: 1/span 1;
+    grid-row: 3/span 1;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img4 {
+    grid-column: 3/span 1;
+    grid-row: 3/span 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img4 {
+    grid-column: 3/span 1;
+    grid-row: 2/span 1;
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img4 #galeria-img4 {
   background-image: url("../images/RDR2.jpg");
   aspect-ratio: 64/79;
   background-size: cover;
@@ -709,7 +776,25 @@ body main .main-site .main-sections .destacados .destacados-galeria a #galeria-i
   width: 100%;
   border-radius: 8px;
 }
-body main .main-site .main-sections .destacados .destacados-galeria a #galeria-img5 {
+@media screen and (max-width: 768px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img5 {
+    grid-column: 2/span 1;
+    grid-row: 3/span 1;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img5 {
+    grid-column: 4/span 1;
+    grid-row: 2/span 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img5 {
+    grid-column: 4/span 1;
+    grid-row: 2/span 1;
+  }
+}
+body main .main-site .main-sections .destacados .destacados-galeria .galeria-a-img5 #galeria-img5 {
   background-image: url("../images/RDR.jpg");
   aspect-ratio: 64/79;
   background-size: cover;
@@ -719,11 +804,109 @@ body main .main-site .main-sections .destacados .destacados-galeria a #galeria-i
   width: 100%;
   border-radius: 8px;
 }
-body main .main-site .main-last .suscribe {
+body main .main-site .main-sections .destacados .destacados-view-more {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .main-site .main-sections .destacados .destacados-view-more .view-more {
+  background: transparent;
+  border: none;
+  font-weight: 400;
+  line-height: unset;
+  outline: none;
+  padding: 0;
+  position: relative;
+  text-transform: none;
+  z-index: 1;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+  align-self: center;
+}
+body main .main-site .main-sections .destacados .destacados-view-more .view-more ::before {
+  background: var(--standard-color);
+  height: 4px;
+  border-radius: 0.25rem;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: -0.1rem;
+  position: absolute;
+  transition: all 0.2s ease;
+  width: calc(100% + 0.2rem);
+  z-index: -1;
+}
+body main .main-site .main-last {
+  min-height: 560px;
+  background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/6a6451bd8ecdc225f087859e32b19a25.png);
+  background-repeat: repeat;
+  background-size: 13.5rem;
+}
+@media screen and (max-width: 768px) {
+  body main .main-site .main-last {
+    background-image: none;
+  }
+}
+body main .main-site .main-last .suscribe {
+  background: linear-gradient(0deg, #000 0.02%, transparent 74.02%);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 64px 32px;
 }
 body main .main-site .main-last .suscribe .suscribe-container {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  max-width: 30rem;
+  min-height: 560px;
+  position: relative;
+}
+body main .main-site .main-last .suscribe .suscribe-container .suscribe-logo {
+  background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/c46845952588bf44125a37117d4da32c.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 42.5px;
+  height: 42.5px;
+  position: relative;
+  display: block;
+}
+body main .main-site .main-last .suscribe .suscribe-container .suscribe-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body main .main-site .main-last .suscribe .suscribe-container .suscribe-text h4 {
+  font-size: 1.25rem;
+}
+body main .main-site .main-last .suscribe .suscribe-container .suscribe-text p {
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  line-height: 150%;
+}
+body main .main-site .main-last .suscribe .suscribe-container .suscribe-now {
+  background: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 100%;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  min-width: max-content;
+  display: inline-block;
+  overflow: visible;
 }
 body footer {
   display: flex;
