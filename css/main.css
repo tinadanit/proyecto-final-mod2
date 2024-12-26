@@ -179,13 +179,13 @@ body {
   color: #fff;
   font-family: "Helvetica Now Display", Arial, Helvetica, sans-serif;
   font-display: fallback;
+  font-size: 20px;
 }
 body header {
   position: fixed;
   width: 100%;
   height: 80px;
   align-items: center;
-  transition: top 0.3s ease-in-out;
 }
 body header .header-menu {
   height: 80px;
@@ -198,6 +198,10 @@ body header .header-menu {
   flex-wrap: nowrap;
   padding: 0 32px;
   border-bottom: 1px solid #282828;
+  opacity: 1;
+  top: 0;
+  transition: top 3s ease-in-out;
+  z-index: 99;
 }
 @media screen and (max-width: 768px) {
   body header .header-menu .header-menu-left {
@@ -353,6 +357,12 @@ body header .header-menu .header-menu-right .menu-signin {
   background-repeat: no-repeat;
   background-position: center center;
   cursor: pointer;
+}
+body main {
+  font-size: 16px;
+}
+body main .main-site {
+  background-color: #0b0b0b;
 }
 body main .main-site .slider {
   padding-top: 80px;
@@ -839,6 +849,7 @@ body main .main-site .main-sections .destacados .destacados-view-more .view-more
   z-index: -1;
 }
 body main .main-site .main-last {
+  background-color: #0b0b0b;
   min-height: 560px;
   background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/6a6451bd8ecdc225f087859e32b19a25.png);
   background-repeat: repeat;
@@ -854,6 +865,7 @@ body main .main-site .main-last .suscribe {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 560px;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -892,7 +904,7 @@ body main .main-site .main-last .suscribe .suscribe-container .suscribe-text p {
   line-height: 150%;
 }
 body main .main-site .main-last .suscribe .suscribe-container .suscribe-now {
-  background: #000;
+  background: transparent;
   border: 1px solid #fff;
   color: #fff;
   margin-top: 30px;
@@ -910,23 +922,15 @@ body main .main-site .main-last .suscribe .suscribe-container .suscribe-now {
 }
 body footer {
   background-color: palegoldenrod;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 32px;
-}
-body footer .enlaces {
-  background-color: orange;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  font-size: 1rem;
-}
-body footer .enlaces a {
-  text-wrap: nowrap;
-  line-height: 25.6px;
+  line-height: 32px;
 }
 body footer .idioma {
   background-color: orchid;
+  order: 2;
 }
 body footer .idioma .idioma-select {
   background-color: aqua;
@@ -964,7 +968,50 @@ body footer .idioma .idioma-select span ::after {
   background-color: red;
   width: 24px;
 }
+body footer .enlaces {
+  order: 0;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+body footer .enlaces a {
+  text-wrap: nowrap;
+  line-height: 25.6px;
+}
+body footer .policies {
+  order: 3;
+  background-color: darkred;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+body footer .policies a {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-wrap: nowrap;
+}
+body footer .policies button {
+  appearance: none;
+  background-color: initial;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.75rem;
+  margin: 0;
+  opacity: 0.65;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
 body footer .rrss {
+  order: 2;
   background-color: blueviolet;
   display: flex;
   justify-content: flex-start;
@@ -1019,32 +1066,44 @@ body footer .rrss .rrss-tw {
   height: 40px;
   width: 40px;
 }
-body footer .policies {
-  background-color: darkred;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+body footer .company {
+  order: 4;
+  background-color: darkgoldenrod;
+  display: grid;
+  font-size: 75%;
+  font-weight: 700;
+  justify-items: center;
+  margin-top: 32px;
+  line-height: 24px;
+  flex-basis: 100%;
 }
-body footer .policies a {
-  font-size: 0.75rem;
-  opacity: 0.65;
-  text-wrap: nowrap;
+@media screen and (max-width: 768px) {
+  body footer .company {
+    grid-template-rows: repeat(3, 1fr);
+  }
 }
-body footer .policies button {
-  appearance: none;
-  background-color: initial;
-  border: none;
-  box-sizing: border-box;
-  color: inherit;
-  cursor: pointer;
-  display: inline-block;
-  font-family: inherit;
-  font-size: font-size-1;
-  margin: 0;
-  opacity: 0.65;
-  padding: 0;
-  text-align: left;
-  text-decoration: none;
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  body footer .company {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  body footer .company {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+body footer .company .company-name {
+  width: 100%;
+}
+body footer .company .company-locations {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+body footer .company .company-year {
+  text-align: right;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,3 +1,5 @@
+// media queries 
+
 @mixin mobile {
     @media screen and (max-width: 768px){
         @content;
@@ -87,7 +89,6 @@
     width: calc(100% + .2rem);
     z-index: -1;
 }
-
 
 @mixin destacados-galeria-style {
     aspect-ratio: 64/79;
