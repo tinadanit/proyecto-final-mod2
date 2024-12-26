@@ -230,18 +230,22 @@ body {
                 padding-top: 80px;
                 display: grid;
                 width: 100%;
-                height: fit-content;
+                height: 100%;
+                align-items: flex-end;
+                z-index: 1;
 
                 @include mobile {
-                    grid-template-columns: 100%;
+                    //grid-template-columns: 100%;
                     grid-template-rows: 50% 50%;
-                    justify-content: center;
-
+                    //justify-content: center;
+                }
+                @include tablet {
+                    grid-template-rows: 60% 40%;
                 }
                 @include pc {
                     grid-template-columns: 70% 30%;
-                    grid-template-rows: 100%;
-                    align-items: center;
+                    //grid-template-rows: 100%;
+                    grid-gap: 1rem;
                 }
     
                 .slider-image {
@@ -262,41 +266,61 @@ body {
                     background-color: red;
                     padding: 32px;
                     display: grid;
-                    gap: 32px;
+                    grid-gap: 1rem;
+
                     @include mobile {
                         grid-template-columns: 1fr;
+                        padding: 32px;
+                    }
+                    @include tablet {
+
+                        padding: 72px 36px;
                     }
                     @include pc {
                         grid-template-rows: 1fr 1fr;
                         align-items: end;
+                        padding: 40px;
                     }
 
                     .slider-text {
-                        background-color: aqua;
-                        display: flex;
-                        flex-direction: column;
-                        width: 100%;
-                        align-items: flex-start;
-                        justify-content: center;
 
-                        .slider-text-content {
-                            background-color: green;
-                            display: grid;
+                        a {
+                            background-color: aqua;
+                            display: flex;
                             width: 100%;
-                            height: fit-content;
-                            p {
-                                font-size: $font-size-1;
-                                font-weight: 700;
-                                line-height: 1.6;
-                                font-stretch: condensed;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+
+                            @include mobile {
+                                flex-direction: column;                          
                             }
-                
-                            h2 {
-                                font-size: $font-size-6;
-                                line-height: 1.6;
-                                letter-spacing: -0.5px;
-                                font-weight: bold;
+                            @include tablet {
+                                flex-direction: row;
                             }
+                            @include pc {
+                                flex-direction: row;
+                            }
+                            
+                            .slider-text-content {
+                                background-color: green;
+                                display: grid;
+                                width: 100%;
+                                height: fit-content;
+                                p {
+                                    font-size: $font-size-1;
+                                    font-weight: 700;
+                                    line-height: 1.6;
+                                    font-stretch: condensed;
+                                }
+                    
+                                h2 {
+                                    font-size: $font-size-6;
+                                    line-height: 1.6;
+                                    letter-spacing: -0.5px;
+                                    font-weight: bold;
+                                }
+                            }   
                         }
                         
                         .button-now {
@@ -563,7 +587,7 @@ body {
                             }
                             @include tablet {
                                 grid-column: 3 / span 1;
-                                grid-row: 3 / span 1;
+                                grid-row: 2 / span 1;
                             }
                             @include pc {
                                 grid-column: 3 / span 1;
@@ -684,13 +708,25 @@ body {
         background-color: palegoldenrod;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
-        padding: 32px;
+        padding: 3rem;
+        // padding: 80px;
+        // padding: 32px;
         line-height: 32px;
         
         .idioma {
                     background-color: orchid;
-                    order: 2;
+                    flex-basis: 30%;
+                    @include mobile {
+                        order: 2;
+                    }
+                    @include tablet {
+                        order: 2;
+                    }
+                    @include pc {
+                        order: 1;
+                    }
         
                     .idioma-select {
                         background-color: aqua;
@@ -747,13 +783,23 @@ body {
         }
 
         .enlaces {
-            order: 0;
             background-color: orange;
             display: flex;
-            flex-direction: column;
             flex-wrap: nowrap;
             justify-content: flex-start;
             font-size: $font-size-3;
+            order: 0;
+            flex-basis: 50%;
+            
+            @include mobile {
+                flex-direction: column;
+            }
+            @include tablet {
+                flex-direction: row;
+            }
+            @include pc {
+                flex-direction: row;
+            }
 
             a {
                 text-wrap: nowrap;
@@ -763,11 +809,20 @@ body {
         }
 
         .policies {
-            order: 3;
             background-color: darkred;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            flex-basis: 70%;
+            @include mobile {
+                order: 3;
+            }
+            @include tablet {
+                order: 3;
+            }
+            @include pc {
+                order: 2;
+            }
 
             a {
                 font-size: $font-size-1;
@@ -796,11 +851,20 @@ body {
         }
 
         .rrss {
-            order: 2;
             background-color: blueviolet;
             display: flex;
             justify-content: flex-start;
-
+            flex-basis: 30%;
+            @include mobile {
+                order: 2;
+            }
+            @include tablet {
+                order: 2;
+            }
+            @include pc {
+                order: 3;
+            }
+            
             .rrss-x {
                 background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724%27 height=%2724%27 fill=%27none%27%3E%3Cpath fill=%27%23fff%27 d=%27M13.61 11.003 19.634 4h-1.428l-5.23 6.08L8.796 4H3.98l6.317 9.195-6.317 7.343h1.427l5.524-6.42 4.413 6.42h4.818l-6.552-9.535Zm-1.956 2.273-.64-.916-5.093-7.285h2.192l4.11 5.88.641.915 5.343 7.643h-2.193l-4.36-6.237Z%27/%3E%3C/svg%3E");
                 @include footer-rrss-style;
@@ -828,21 +892,22 @@ body {
         }
 
         .company {
-            order: 4;
             background-color: darkgoldenrod;
             display: grid;
             font-size: 75%;
             font-weight: 700;
-            justify-items: center;
-            margin-top: 32px;
+            margin-top: 2rem;
             line-height: 24px;
             flex-basis: 100%;
-
+            order: 4;
+            
             @include mobile {
                 grid-template-rows: repeat(3, 1fr);
+                justify-items: center;
             }
             @include tablet {
                 grid-template-columns: repeat(3, 1fr);
+                justify-content: space-between;
             }
             @include pc {
                 grid-template-columns: repeat(3, 1fr);
