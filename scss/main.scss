@@ -17,7 +17,6 @@ body {
         .header-hidden {
             width: 100%;
             height: 80px;
-            position: relative;
         }
 
         .header-menu {
@@ -25,7 +24,7 @@ body {
             opacity: 1;
             top: 0;
             backdrop-filter: blur(25px);
-            //transition: top 3s ease-in-out;
+            transition: top 3s ease-in-out;
             z-index: 99;
             height: 80px;
             width: 100%;
@@ -91,7 +90,7 @@ body {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                //justify-content: space-between;
+                justify-content: space-between;
                 height: inherit;
 
                 @include mobile {
@@ -102,7 +101,7 @@ body {
                     width: 70%;
                 }
                 @include pc {
-                    width: 80%;
+                    width: 75%;
                 }
 
                 .menu-logo {
@@ -177,6 +176,7 @@ body {
             // HEADER-RIGHT Sing-In
 
             .header-menu-right {
+                background-color: palegreen;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
@@ -190,18 +190,19 @@ body {
                     width: 30%;
                 }
                 @include pc {
-                    width: 20%;
+                    width: 25%;
                 }
 
                 .menu-right-extended {
+                    background-color: darkolivegreen;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
                     align-items: center;
-                    justify-content: space-around;
+                    //justify-content: space-around;
                     gap: 2em;
                     height: inherit;
-                    padding-right: 2em;
+                    padding:0 2em;
                     @include mobile {
                         position: absolute;
                         display: none;
@@ -215,16 +216,17 @@ body {
                         border-radius: .25rem;
                         cursor: pointer;
                         display: inline-block;
-                        font-size: 1em;
+                        font-size: 1rem;
                         font-weight: 700;
                         line-height: 100%;
-                        padding: 0.75em 1em;
+                        padding: 0.75rem 1rem;
                         text-transform: uppercase;
                     }
                     
                     .ext-search-button {
+                        background-color: greenyellow;
                         @include button-style;
-                        width: 25px;
+                        width: 1.6rem;
 
                         @include mobile {
                             position: absolute;
@@ -234,8 +236,9 @@ body {
                 }
 
                 .menu-signin {
+                    background-color: darkblue;
                     cursor: pointer;
-                    width: 2em;
+                    width: 2rem;
                     height: inherit;
                     background-image: url(https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/a29e26aa160e7be7e845708c335b3c39.svg);
                     background-size: contain;
@@ -250,13 +253,7 @@ body {
     // MAIN
 
     main {
-        // display: flex;
-        // @include mobile {
-        //     flex-direction: column;
-        // }
-        // @include pc {
-        //     flex-direction: row;
-        // }
+
         font-size: 16px;
 
         .main-site {
@@ -284,16 +281,13 @@ body {
                 z-index: 1;
 
                 @include mobile {
-                    //grid-template-columns: 100%;
                     grid-template-rows: 50% 50%;
-                    //justify-content: center;
                 }
                 @include tablet {
                     grid-template-rows: 60% 40%;
                 }
                 @include pc {
                     grid-template-columns: 70% 30%;
-                    //grid-template-rows: 100%;
                     grid-gap: 1rem;
                 }
     
@@ -317,7 +311,7 @@ body {
                     grid-gap: 1rem;
 
                     @include mobile {
-                        grid-template-columns: 1fr;
+                        grid-template-rows: 1fr;
                         padding: 32px;
                     }
                     @include tablet {
@@ -331,9 +325,10 @@ body {
                     }
 
                     .slider-text {
+                        display: flex;
+                        justify-content: flex-;
 
                         a {
-                            background-color: aqua;
                             display: flex;
                             width: 100%;
                             align-items: flex-start;
@@ -351,7 +346,6 @@ body {
                             }
                             
                             .slider-text-content {
-                                background-color: green;
                                 display: grid;
                                 width: 100%;
                                 height: fit-content;
@@ -374,6 +368,12 @@ body {
                         .button-now {
                             display: flex;
                             @include button-now-style (transparent, 1px solid $primary-color, $primary-color);
+                            @include mobile {
+                                width: 100%;
+                            }
+                            @include pc {
+                                width: 70%;
+                            }
                         }
                     }
         
@@ -413,7 +413,8 @@ body {
     
             }
             
-    
+            // CONTENEDOR SECCIONES 2 Y 3 
+
             .main-sections {
                 //display:grid;
                 margin: 0px 32px;
@@ -518,8 +519,14 @@ body {
                                 }
                             }
                         }
+
+                    }
+                    .view-more{
+                        @include view-more-button;
                     }
                 }
+            
+                // SECCIÓN 3: JUEGOS DESTACADOS
 
                 .destacados {
                     background-color: cornflowerblue;
@@ -678,15 +685,13 @@ body {
                         align-items: center;
 
                         .view-more {
-                            @include view-more-style;
-
-                            ::before {
-                                @include view-more-before;
-                            }
+                            @include view-more-button;
                         }
                     }
                 }
             }
+
+            // SECCIÓN 4: SUSCRIBE
 
             .main-last {
                 background-color: $bg-color-main;
